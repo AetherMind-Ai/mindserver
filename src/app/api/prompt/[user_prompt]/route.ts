@@ -141,7 +141,10 @@ Context Preservation: I must remember and reference previous exchanges when rele
 Progressive Dialogue: This is an ongoing conversation, not isolated queries
 `;
 
-    const fullPrompt = instruction + userPrompt;
+    // Tell the model this is the user's request
+    const userRequestPrefix = "This is the user's request: ";
+
+    const fullPrompt = instruction + userRequestPrefix + userPrompt;
 
     const result = await model.generateContent(fullPrompt);
     const response = result.response;
@@ -166,3 +169,4 @@ Progressive Dialogue: This is an ongoing conversation, not isolated queries
     );
   }
 }
+
