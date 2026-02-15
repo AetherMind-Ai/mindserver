@@ -144,7 +144,7 @@ Progressive Dialogue: This is an ongoing conversation, not isolated queries
     // Tell the model this is the user's request
     const userRequestPrefix = "This is the user's request: ";
 
-    const fullPrompt = instruction + userRequestPrefix + userPrompt;
+    const fullPrompt = userRequestPrefix + userPrompt + "\n\n" + instruction;
 
     const result = await model.generateContent(fullPrompt);
     const response = result.response;
@@ -169,4 +169,3 @@ Progressive Dialogue: This is an ongoing conversation, not isolated queries
     );
   }
 }
-
